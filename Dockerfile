@@ -1,4 +1,4 @@
-FROM ghcr.io/azicen/debian-desktop:latest
+FROM debian:bookworm
 
 ARG TARGETARCH
 ARG VERSION
