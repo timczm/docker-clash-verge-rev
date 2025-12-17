@@ -9,8 +9,8 @@ on:
       - v*
 
 env:
-  REGISTRY: ${{ vars.REGISTRY }}
-  IMAGE: ${{ vars.IMAGE }}
+  REGISTRY: ghcr.io
+  IMAGE: ${{ github.repository }}
 
 jobs:
   build-and-push:
@@ -25,7 +25,7 @@ jobs:
       - name: 设置环境变量
         run: |
           echo "GIT_TAG_VERSION=$(echo $GITHUB_REF_NAME | sed 's/^v//')" >> $GITHUB_ENV
-          echo "REGISTRY_USERNAME=${{ github.repository_owner }}" >> $GITHUB_ENV
+          echo "REGISTRY_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
 
       - name: 检查环境变量
         run: |
